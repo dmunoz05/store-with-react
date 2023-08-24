@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect, createContext } from 'react';
 
-export const ShoppingCartContext = createContext()
+export const ShoppingCartContext = createContext();
 
 export const ShoppingCartProvider = ({ children }) => {
 
@@ -77,11 +77,6 @@ export const ShoppingCartProvider = ({ children }) => {
         if (searchByCategory && !searchByTitle) setFilteredItems(filterBy('BY_CATEGORY', items, searchByTitle, searchByCategory ));
         if (!searchByCategory && !searchByTitle) setFilteredItems(filterBy(null, items, searchByTitle, searchByCategory ));
     }, [items, searchByTitle, searchByCategory]);
-    
-
-    console.log('searchByTitle: ', searchByTitle);
-    console.log('searchByCategory: ', searchByCategory);
-    console.log('filteredItems: ', filteredItems);
 
     return (
         <ShoppingCartContext.Provider value={{
